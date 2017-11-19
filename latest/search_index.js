@@ -13,7 +13,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Home",
     "title": "NPFinancial.jl Documentation",
     "category": "section",
-    "text": "NPFinancial.jl is a port of the NumPy's financial module. "
+    "text": ""
 },
 
 {
