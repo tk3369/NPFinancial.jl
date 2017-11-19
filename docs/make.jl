@@ -1,6 +1,15 @@
 using Documenter, NPFinancial
 
 makedocs(
+    modules = [NPFinancial],
+    clean = false,
+    format = :html,
+    sitename = "NPFinancial.jl",
+    authors = "Tom Kwong",
+    linkcheck = !("skiplinks" in ARGS),
+    pages = Any[
+        "Home" => "index.md"
+    ]
 )
 
 deploydocs(
