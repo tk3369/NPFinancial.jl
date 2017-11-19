@@ -1,6 +1,6 @@
 # NPFinancial.jl Documentation
 
-NPFinancial.jl is a port of the NumPy's financial module Edit
+NPFinancial.jl is a port of the NumPy's financial module. 
 
 ## Functions
 
