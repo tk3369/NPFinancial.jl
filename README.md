@@ -10,6 +10,12 @@ NPFinancial.jl is a port of the NumPy's
 Documentation of NPFinancial can be found at
 https://tk3369.github.io/NPFinancial.jl/latest/index.html
 
+To install:
+
+```
+Pkg.clone("https://github.com/tk3369/NPFinancial.jl.git")
+```
+
 ### Notes
 
 This library does not implement any array broacasting feature as in 
