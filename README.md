@@ -1,6 +1,11 @@
 # NPFinancial
 
-NPFinancial.jl is a port of the numpy financial module.
+[![Build Status](https://travis-ci.org/tk3369/NPFinancial.jl.svg)](https://travis-ci.org/tk3369/NPFinancial.jl)
+[![codecov.io](http://codecov.io/github/tk3369/NPFinancial.jl/coverage.svg?branch=master)](http://codecov.io/github/tk3369/NPFinancial.jl?branch=master)
+
+NPFinancial.jl is a port of the NumPy's financial module 
+https://docs.scipy.org/doc/numpy/reference/routines.financial.html
+
 
 ### Notes
 
