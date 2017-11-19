@@ -1,4 +1,4 @@
-The TKFinancial.jl package is licensed under the MIT "Expat" License:
+The NPFinancial.jl package is licensed under the MIT "Expat" License:
 
 > Copyright (c) 2017: Tom Kwong.
 >
