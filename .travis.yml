@@ -33,3 +33,6 @@ after_success:
   - julia -e 'cd(Pkg.dir("NPFinancial")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'
   # push coverage results to Codecov
   - julia -e 'cd(Pkg.dir("NPFinancial")); Pkg.add("Coverage"); using Coverage; Codecov.submit(Codecov.process_folder())'
+  # For Documenter https://juliadocs.github.io/Documenter.jl/stable/man/hosting/#.travis.yml-Configuration-1
+  - julia -e 'Pkg.add("Documenter")'
+  - julia -e 'cd(Pkg.dir("NPFinancial")); include(joinpath("docs", "make.jl"))'
