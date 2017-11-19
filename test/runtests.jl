@@ -12,6 +12,7 @@ using MicroLogging
 @test nper(0.07/12, -150, 8000) ≈ 64.07334877066185
 @test ipmt(0.01, 4, 10, -100.0) ≈ 0.7103767498422946
 @test rate(1, 0, -100, 101) ≈ 0.01
+@test isnan(rate(10, -10, 100, 102))
 
 # unit tests borrowed from numpy
 
