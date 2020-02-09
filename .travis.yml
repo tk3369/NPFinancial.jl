@@ -4,7 +4,8 @@ os:
   - linux
   - osx
 julia:
-  - 0.6
+  - 1.0
+  - 1.3
   - nightly
 notifications:
   email: false
@@ -30,7 +31,7 @@ git:
 #  - julia -e 'Pkg.clone(pwd()); Pkg.build("NPFinancial"); Pkg.test("NPFinancial"; coverage=true)'
 after_success:
   # push coverage results to Coveralls
-  - julia -e 'cd(Pkg.dir("NPFinancial")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'
+  - julia -e 'using Pkg; cd(Pkg.dir("NPFinancial")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'
   # push coverage results to Codecov
   - julia -e 'cd(Pkg.dir("NPFinancial")); Pkg.add("Coverage"); using Coverage; Codecov.submit(Codecov.process_folder())'
   # For Documenter https://juliadocs.github.io/Documenter.jl/stable/man/hosting/#.travis.yml-Configuration-1
