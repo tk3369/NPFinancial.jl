@@ -8,7 +8,8 @@ makedocs(
 
 deploydocs(
     repo = "github.com/tk3369/NPFinancial.jl.git",
-    devbranch = "master",
-    devurl = "dev",
-    versions = ["stable" => "v^", "v#.#", devurl => devurl]
+    versions = ["stable" => "v^"],
+    deps = Deps.pip("pygments", "mkdocs", "mkdocs-material"),
+    make   = () -> run(`mkdocs build`),
+    target = "site"
 )
