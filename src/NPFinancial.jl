@@ -184,7 +184,7 @@ payment `pmt` over a number of periods `nper`.
 This implementation uses Newton's iteration until the change is less than 1e-6.
 Newton's rule is
 
-``r_{n+1} = r_{n} - g(r_n)/g'(r_n)``
+``r_{n+1} = r_{n} - \\frac{g(r_n)}{g'(r_n)}``
 
 where
 * g(r) is the formula
