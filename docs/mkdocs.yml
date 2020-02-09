@@ -4,7 +4,7 @@ site_description: Financial library
 site_author:      tk3369
 
 theme:
-  name: 'material'
+  name: 'readthedocs'
 
 extra_css:
   - assets/Documenter.css
