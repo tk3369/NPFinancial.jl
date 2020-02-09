@@ -2,7 +2,6 @@
 
 [![Build Status](https://travis-ci.org/tk3369/NPFinancial.jl.svg)](https://travis-ci.org/tk3369/NPFinancial.jl)
 [![codecov.io](http://codecov.io/github/tk3369/NPFinancial.jl/coverage.svg?branch=master)](http://codecov.io/github/tk3369/NPFinancial.jl?branch=master)
-[![Latest](https://img.shields.io/badge/docs-latest-blue.svg)](https://tk3369.github.io/NPFinancial.jl/latest)
 [![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://tk3369.github.io/NPFinancial.jl/stable)
 [![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://tk3369.github.io/NPFinancial.jl/dev)
 
