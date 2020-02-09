@@ -1,3 +1,4 @@
 [deps]
-Polynomials = "f27b6e38-b328-58d1-80ce-0feddd5e7a45"
+Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
 NPFinancial = "d92e12fc-aea5-418c-9372-8108a4db1700"
+Polynomials = "f27b6e38-b328-58d1-80ce-0feddd5e7a45"
