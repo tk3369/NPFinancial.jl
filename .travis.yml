@@ -31,7 +31,7 @@ git:
 #  - julia -e 'Pkg.clone(pwd()); Pkg.build("NPFinancial"); Pkg.test("NPFinancial"; coverage=true)'
 after_success:
   # push coverage results to Codecov
-  - julia -e 'using Pkg; import NPFinancial; cd(joinpath(dirname(pathof(NPFinancial)), "..", paths...)); Pkg.add("Coverage"); using Coverage; Codecov.submit(Codecov.process_folder())'
+  - julia -e 'using Pkg; import NPFinancial; cd(joinpath(dirname(pathof(NPFinancial)), "..")); Pkg.add("Coverage"); using Coverage; Codecov.submit(Codecov.process_folder())'
 
 jobs:
   include:
