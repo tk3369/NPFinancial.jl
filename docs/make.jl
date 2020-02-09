@@ -6,8 +6,6 @@ makedocs(
     sitename="NPFinancial"
 )
 
-run(`python -V`)
-
 deploydocs(
     repo = "github.com/tk3369/NPFinancial.jl.git",
     versions = ["stable" => "v^"],
