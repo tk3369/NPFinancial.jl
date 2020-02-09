@@ -1,32 +1,32 @@
 # Functions
 
-```@contents
-```
+The NPFinancial package contains functions for calculating present value / future value, payment amount, and different types of interest rates.
 
 ## Present/Future Value
 ```@docs
-pv(rate, nper, pmt, fv = 0.0, when = :end)
-fv(rate, nper, pmt, pv, when = :end)
-npv(rate, values)
+pv
+fv
+npv
 ```
 
 ## Payments
 
 ```@docs
-ipmt(rate, per, nper, pv, fv = 0.0, when = :end)
-ppmt(rate, per, nper, pv, fv = 0.0, when = :end)
+ipmt
+ppmt
+pmt
 ```
 
 ## Rates
 
 ```@docs
-rate(nper, pmt, pv, fv, when=:end, guess=0.1, tol=1e-6, maxiter=100)
-irr(values)
-mirr(values, finance_rate, reinvest_rate)
+rate
+irr
+mirr
 ```
 
 ## Miscellaneous
 
 ```@docs
-nper(rate, pmt, pv, fv = 0.0, when = :end)
+nper
 ```

@@ -17,6 +17,8 @@ function _rbl(rate, per, pmt, pv, when)
 end
 
 """
+    fv(rate::Real, nper::Integer, pmt::Real, pv::Real, when = :end)
+
 Compute the future value given the present value `pv`, an interest rate `rate` that
 is compounded once per period, over `nper` number of periods. A fixed payment `pmt`
 may be specified in the `when` argument, which is paid either at the beginning of
@@ -31,7 +33,7 @@ julia> fv(0.05, 2, 0, -100)
 110.25
 ```
 """
-function fv(rate, nper, pmt, pv, when = :end)
+function fv(rate::Real, nper::Integer, pmt::Real, pv::Real, when = :end)
     when = _convert_when(when)
     temp = (1+rate)^nper
     fact = rate == 0 ? nper : (1 + rate*when)*(temp - 1)/rate
@@ -39,6 +41,8 @@ function fv(rate, nper, pmt, pv, when = :end)
 end
 
 """
+    pmt(rate::Real, nper::Integer, pv::Real, fv = 0.0, when = :end)
+
 Compute the payment given the present value `pv`, an interest rate `rate` that
 is compounded once per period, over `nper` number of periods, such that at the
 end of the last period the value becomes `fv`. The payment is expected to be paid
@@ -55,7 +59,7 @@ julia> pmt(0.0425/12, 30*12, 300000)
 -1475.8196732384283
 ```
 """
-function pmt(rate, nper, pv, fv = 0.0, when = :end)
+function pmt(rate::Real, nper::Integer, pv::Real, fv = 0.0, when = :end)
     when = _convert_when(when)
     temp = (1 + rate).^nper
     mask = (rate == 0)
@@ -65,13 +69,15 @@ function pmt(rate, nper, pv, fv = 0.0, when = :end)
 end
 
 """
+    nper(rate::Real, pmt::Real, pv::Real, fv = 0.0, when = :end)
+
 Compute how many periods the present value `pv` may accrue/repaid till the future
 value `fv` given a specific interest rate `rate` and a fixed payment `pmt`.
 The payment is expected to be paid
 at the beginning of each period (`:begin`) or `:end` of the period, as specified
 in the `when` argument.
 """
-function nper(rate, pmt, pv, fv = 0.0, when = :end)
+function nper(rate::Real, pmt::Real, pv::Real, fv = 0.0, when = :end)
     when = _convert_when(when)
     if rate == 0
         return -(fv + pv) / pmt
@@ -82,6 +88,8 @@ function nper(rate, pmt, pv, fv = 0.0, when = :end)
 end
 
 """
+    ipmt(rate::Real, per::Integer, nper::Integer, pv::Real, fv = 0.0, when = :end)
+
 Compute the interest component of the periodic payment.  This useful for any
 loan that has a repayment schedule.
 
@@ -107,7 +115,7 @@ julia> ipmt.(0.0425/12, [1,2,3,358,359,360], 30*12, 300000)
     -5.20841
 ```
 """
-function ipmt(rate, per, nper, pv, fv = 0.0, when = :end)
+function ipmt(rate::Real, per::Integer, nper::Integer, pv::Real, fv = 0.0, when = :end)
     #when = _convert_when(when)
     #rate, per, nper, pv, fv, when = np.broadcast_arrays(rate, per, nper, pv, fv, when)
     total_pmt = pmt(rate, nper, pv, fv, when)
@@ -118,6 +126,8 @@ function ipmt(rate, per, nper, pv, fv = 0.0, when = :end)
 end
 
 """
+    ppmt(rate, per, nper, pv, fv = 0.0, when = :end)
+
 Compute the principal component of the periodic payment.  This useful for any
 loan that has a repayment schedule.
 
@@ -137,18 +147,20 @@ julia> ppmt.(0.0425/12, [1,2,3,358,359,360], 30*12, 300000)
  -1470.61
 ```
 """
-function ppmt(rate, per, nper, pv, fv = 0.0, when = :end)
+function ppmt(rate::Real, per::Integer, nper::Integer, pv::Real, fv = 0.0, when = :end)
     total = pmt(rate, nper, pv, fv, when)
     return total - ipmt(rate, per, nper, pv, fv, when)
 end
 
 """
+    pv(rate::Real, nper::Integer, pmt::Real, fv = 0.0, when = :end)
+
 Compute the present value given the future value `fv`, an interest rate `rate` and
 a fixed periodic payment `pmt` over a number of periods `nper`.  The payment is
 expected to be paid at the beginning of each period (`:begin`) or `:end` of the period,
 as specified in the `when` argument.
 """
-function pv(rate, nper, pmt, fv = 0.0, when = :end)
+function pv(rate::Real, nper::Integer, pmt::Real, fv = 0.0, when = :end)
     when = _convert_when(when)
     temp = (1+rate)^nper
     fact = rate == 0 ? nper : (1+rate*when)*(temp-1)/rate
@@ -164,6 +176,8 @@ function _g_div_gp(r, n, p, x, y, w)
 end
 
 """
+    rate(nper::Integer, pmt::Real, pv::Real, fv::Real, when=:end, guess=0.1, tol=1e-6, maxiter=100)
+
 Compute interest rate given present value `pv`, future value `fv`, and fixed periodic
 payment `pmt` over a number of periods `nper`.
 
@@ -182,7 +196,8 @@ julia> rate(1, 0, -100, 101)
 0.010000000000000155
 ```
 """
-function rate(nper, pmt, pv, fv, when=:end, guess=0.1, tol=1e-6, maxiter=100)
+function rate(nper::Integer, pmt::Real, pv::Real, fv::Real,
+              when=:end, guess=0.1, tol=1e-6, maxiter=100)
     when = _convert_when(when)
     rn = guess
     iterator = 0
@@ -203,6 +218,8 @@ function rate(nper, pmt, pv, fv, when=:end, guess=0.1, tol=1e-6, maxiter=100)
 end
 
 """
+     irr(values::Real)
+
 Calculate internal rate of return given an array of cash flow `values`
 (nearest one first)
 
@@ -226,6 +243,8 @@ function irr(values)
 end
 
 """
+    npv(rate::Real, values::AbstractVector{<:Real})
+
 Compute the Net Present Value (NPV) of a cash flow series `values` given
 an internal rate of return `rate`.
 
@@ -246,16 +265,18 @@ julia> npv(0.281,[-100, 39, 59, 55, 20])
 * L. J. Gitman, "Principles of Managerial Finance, Brief," 3rd ed.,
     Addison-Wesley, 2003, pg. 346.
 """
-function npv(rate, values)
+function npv(rate::Real, values::AbstractVector{<:Real})
     return sum(values ./ (1+rate).^(0:length(values)-1))
 end
 
 """
+    mirr(values::AbstractVector{<:Real}, finance_rate::Real, reinvest_rate::Real)
+
 Compute the modified internal rate of return (MIRR) given a series of cash flows,
 a `finance_rate` (interest rate paid on the cash flows) and `reinvest_rate` (interest
 rate received on the cash flows upon reinvestment).
 """
-function mirr(values, finance_rate, reinvest_rate)
+function mirr(values::AbstractVector{<:Real}, finance_rate::Real, reinvest_rate::Real)
     n = length(values)
     pos = values .> 0
     neg = values .< 0
