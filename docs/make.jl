@@ -1,22 +1,11 @@
-using Documenter, NPFinancial
+using Documenter
+using NPFinancial
 
 makedocs(
-    modules = [NPFinancial],
-    clean = false,
-    format = :html,
-    sitename = "NPFinancial.jl",
-    authors = "Tom Kwong",
-    linkcheck = !("skiplinks" in ARGS),
-    pages = Any[
-        "Home" => "index.md"
-    ]
+    sitename="NPFinancial"
 )
 
 deploydocs(
     repo = "github.com/tk3369/NPFinancial.jl.git",
-    target = "build",
-    deps = nothing,
-    make = nothing,
-    julia  = "0.6",
-    osname = "linux"
+    deps = Deps.pip("pygments", "mkdocs")
 )

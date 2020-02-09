@@ -1,6 +1,6 @@
-site_name:        NPFinancial.jl
+site_name:        NPFinancial.jl Documentation
 repo_url:         https://github.com/tk3369/NPFinancial.jl
-site_description: NPFinancial documentation
+site_description: NPFinancial.jl
 site_author:      tk3369
 
 theme: readthedocs
