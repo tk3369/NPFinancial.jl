@@ -14,6 +14,7 @@ using Test
     @test ipmt(0.01, 4, 10, -100.0) ≈ 0.7103767498422946
     @test rate(1, 0, -100, 101) ≈ 0.01
     @test isnan(rate(10, -10, 100, 102))
+    @test reff(0.08, 1, 2) ≈ 4
 
     # unit tests borrowed from numpy
 
@@ -86,6 +87,10 @@ using Test
 
     val = [39000, 30000, 21000, 37000, 46000]
     @test isnan(mirr(val, 0.10, 0.12))
+    
+    @info "Testing reff"
+    @test round(reff(0.08, 2, 1), digits = 2) == 8.16
+    @test round(reff(0.12, 4, 1), digits = 2) == 12.55
 
     @info "All tests completed"
 end
