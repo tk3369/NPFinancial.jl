@@ -23,7 +23,7 @@ pmt
 rate
 irr
 mirr
-reff
+eir
 ```
 
 ## Miscellaneous
