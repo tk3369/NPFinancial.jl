@@ -289,16 +289,15 @@ function mirr(values::AbstractVector{<:Real}, finance_rate::Real, reinvest_rate:
 end
 
 """
-    reff(r::Real, C::Real, K::Real)
+    eir(rate::Real, nper::Real)
 
 Computes the effective interest rate `ieff` given 
-the nominal rate `nr`,
-the number of compounding periods per payment period `C` (compunding period) and
-the number of payments per year `K` (payment period).
+* `rate` is the nominal (annual) rate,
+* `nper` is the number of compounding periods.
 """
 
-function reff(nr::Real, C::Real, K::Real)
-    ieff = (((1 + (nr/(C*K)))^C)-1)*100
+function eir(rate::Real, nper::Real)
+    ieff = (((1 + (rate / nper))^nper)-1)
     
     return ieff
 end
