@@ -292,14 +292,12 @@ end
     eir(rate::Real, nper::Real)
 
 Computes the effective interest rate `ieff` given 
-* `rate` is the nominal (annual) rate,
-* `nper` is the number of compounding periods.
+* `rate` is the nominal (annual) rate
+* `nper` is the number of compounding periods
 """
 
 function eir(rate::Real, nper::Real)
-    ieff = (((1 + (rate / nper))^nper)-1)
-    
-    return ieff
+    return (((1 + (rate / nper))^nper)-1)
 end
 
 end
