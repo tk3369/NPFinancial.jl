@@ -1,6 +1,6 @@
 module NPFinancial
 
-export fv, pmt, nper, ipmt, ppmt, pv, rate, irr, npv, mirr
+export fv, pmt, nper, ipmt, ppmt, pv, rate, irr, npv, mirr, eir
 
 using Polynomials: Poly, roots
 
