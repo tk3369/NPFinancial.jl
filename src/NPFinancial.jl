@@ -1,6 +1,6 @@
 module NPFinancial
 
-export fv, pmt, nper, ipmt, ppmt, pv, rate, irr, npv, mirr
+export fv, pmt, nper, ipmt, ppmt, pv, rate, irr, npv, mirr, eir
 
 using Polynomials: Poly, roots
 
@@ -286,6 +286,18 @@ function mirr(values::AbstractVector{<:Real}, finance_rate::Real, reinvest_rate:
     numer = abs(npv(reinvest_rate, values .* pos))
     denom = abs(npv(finance_rate, values .* neg))
     return (numer/denom)^(1/(n - 1))*(1 + reinvest_rate) - 1
+end
+
+"""
+    eir(rate::Real, nper::Real)
+
+Computes the effective interest rate `ieff` given 
+* `rate` is the nominal (annual) rate
+* `nper` is the number of compounding periods
+"""
+
+function eir(rate::Real, nper::Real)
+    return (((1 + (rate / nper))^nper)-1)
 end
 
 end

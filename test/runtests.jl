@@ -86,6 +86,9 @@ using Test
 
     val = [39000, 30000, 21000, 37000, 46000]
     @test isnan(mirr(val, 0.10, 0.12))
+    
+    @info "Testing eir"
+    @test round(eir(0.08, 2), digits = 3) == 0.082
 
     @info "All tests completed"
 end

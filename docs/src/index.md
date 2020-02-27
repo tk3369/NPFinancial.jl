@@ -23,6 +23,7 @@ pmt
 rate
 irr
 mirr
+eir
 ```
 
 ## Miscellaneous
