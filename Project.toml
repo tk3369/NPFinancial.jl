@@ -1,7 +1,7 @@
 name = "NPFinancial"
 uuid = "d92e12fc-aea5-418c-9372-8108a4db1700"
 authors = ["Tom Kwong <tk3369@gmail.com>"]
-version = "0.3.1"
+version = "0.3.2"
 
 [deps]
 Polynomials = "f27b6e38-b328-58d1-80ce-0feddd5e7a45"
