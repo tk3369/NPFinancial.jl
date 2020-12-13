@@ -2,7 +2,7 @@ module NPFinancial
 
 export fv, pmt, nper, ipmt, ppmt, pv, rate, irr, npv, mirr, eir
 
-using Polynomials: Poly, roots
+using Polynomials: Polynomial, roots
 
 # Internal functions
 
@@ -218,7 +218,7 @@ function rate(nper::Integer, pmt::Real, pv::Real, fv::Real,
 end
 
 """
-     irr(values::Real)
+    irr(values::Vector{T}) where {T <: Real}
 
 Calculate internal rate of return given an array of cash flow `values`
 (nearest one first)
@@ -229,8 +229,8 @@ julia> irr([-100, 101])
 0.010000000000000009
 ```
 """
-function irr(values)
-    res = roots(Poly(values))
+function irr(values::Vector{T}) where {T <: Real}
+    res = roots(Polynomial(values))
     mask = map(x -> isa(x, Complex) ? x.im == 0 && x.re > 0 : x > 0, res)
     if !any(mask)
         return NaN
