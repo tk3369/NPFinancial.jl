@@ -1,6 +1,6 @@
 # NPFinancial.jl
 
-[![Build Status](https://travis-ci.org/tk3369/NPFinancial.jl.svg)](https://travis-ci.org/tk3369/NPFinancial.jl)
+[![Build Status](https://github.com/tk3369/NPFinancial.jl/workflows/CI/badge.svg)](https://github.com/tk3369/NPFinancial.jl/actions?query=workflow%3ACI)
 [![codecov.io](http://codecov.io/github/tk3369/NPFinancial.jl/coverage.svg?branch=master)](http://codecov.io/github/tk3369/NPFinancial.jl?branch=master)
 [![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://tk3369.github.io/NPFinancial.jl/stable)
 [![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://tk3369.github.io/NPFinancial.jl/dev)
